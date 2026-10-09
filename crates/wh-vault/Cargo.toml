@@ -1,0 +1,19 @@
+[package]
+name = "wh-vault"
+version.workspace = true
+edition.workspace = true
+license.workspace = true
+
+[dependencies]
+wh-core = { path = "../wh-core" }
+argon2 = "0.5"
+chacha20poly1305 = "0.10"
+rusqlite = { version = "0.37", features = ["bundled"] }
+serde = { version = "1", features = ["derive"] }
+serde_json = "1"
+thiserror = "2"
+uuid = { version = "1", features = ["v4", "serde"] }
+zeroize = { version = "1", features = ["derive"] }
+
+[dev-dependencies]
+tempfile = "3"

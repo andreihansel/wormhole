@@ -1,0 +1,12 @@
+[workspace]
+resolver = "2"
+members = ["crates/*", "src-tauri"]
+
+[workspace.package]
+edition = "2021"
+license = "MIT OR Apache-2.0"
+version = "0.1.0"
+
+# Crypto (Argon2, RSA keygen) is painfully slow unoptimized; optimize deps in dev.
+[profile.dev.package."*"]
+opt-level = 2

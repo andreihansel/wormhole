@@ -1,0 +1,19 @@
+[package]
+name = "wh-ssh"
+version.workspace = true
+edition.workspace = true
+license.workspace = true
+
+[dependencies]
+wh-core = { path = "../wh-core" }
+russh = { version = "0.64", default-features = false, features = ["flate2", "rsa", "ring"] }
+rand = { version = "0.10", features = ["thread_rng"] }
+thiserror = "2"
+serde = { version = "1", features = ["derive"] }
+zeroize = "1"
+base64 = "0.22"
+russh-sftp = "3"
+hmac = "0.12"
+sha1 = "0.10"
+tempfile = "3"
+tokio = { version = "1", features = ["rt-multi-thread", "macros", "net", "time", "sync", "io-util", "fs"] }

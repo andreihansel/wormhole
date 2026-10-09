@@ -1,0 +1,18 @@
+[package]
+name = "wh-session"
+version.workspace = true
+edition.workspace = true
+license.workspace = true
+
+[dependencies]
+wh-ssh = { path = "../wh-ssh" }
+thiserror = "2"
+tokio = { version = "1", features = ["rt-multi-thread", "macros", "sync", "time", "fs", "io-util"] }
+uuid = { version = "1", features = ["v4", "serde"] }
+serde = { version = "1", features = ["derive"] }
+portable-pty = "0.9"
+
+[dev-dependencies]
+tempfile = "3"
+russh = { version = "0.64", default-features = false, features = ["ring"] }
+zeroize = "1"

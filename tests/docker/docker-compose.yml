@@ -1,0 +1,40 @@
+# Integration-test SSH targets. Ports bind to 127.0.0.1 only.
+#   pw-host  127.0.0.1:2201  (user wh / whpass)
+#   key-host 127.0.0.1:2202  (fixture keys)
+#   bastion  127.0.0.1:2203  -> reaches `internal` on the private network
+#   internal (no published port; only via bastion; second hop via `internal2`)
+x-target: &target
+  build:
+    context: .
+    additional_contexts:
+      keys: ../fixtures/keys
+  image: wormhole-test-sshd
+
+services:
+  pw-host:
+    <<: *target
+    ports: ["127.0.0.1:2201:22"]
+    networks: [public]
+  key-host:
+    image: wormhole-test-sshd
+    depends_on: [pw-host]
+    ports: ["127.0.0.1:2202:22"]
+    networks: [public]
+  bastion:
+    image: wormhole-test-sshd
+    depends_on: [pw-host]
+    ports: ["127.0.0.1:2203:22"]
+    networks: [public, private]
+  internal:
+    image: wormhole-test-sshd
+    depends_on: [pw-host]
+    networks: [private, deep]
+  internal2:
+    image: wormhole-test-sshd
+    depends_on: [pw-host]
+    networks: [deep]
+
+networks:
+  public: {}
+  private: { internal: true }
+  deep: { internal: true }

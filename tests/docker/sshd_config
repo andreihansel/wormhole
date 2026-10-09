@@ -1,0 +1,9 @@
+Port 22
+PasswordAuthentication yes
+PubkeyAuthentication yes
+KbdInteractiveAuthentication no
+AllowTcpForwarding yes
+AllowAgentForwarding yes
+GatewayPorts no
+AcceptEnv WH_*
+Subsystem sftp internal-sftp
