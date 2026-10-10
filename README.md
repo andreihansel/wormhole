@@ -58,7 +58,13 @@ Settings include an encrypted vault backup and restore, SSH configuration import
 
 ### macOS release
 
-Download the Apple Silicon `.dmg` from the [latest GitHub release](https://github.com/andreihansel/wormhole/releases/latest), open it, and drag Wormhole into Applications. This build is not Apple-notarized, so macOS may ask you to approve it under **System Settings → Privacy & Security** the first time you open it.
+Download the Apple Silicon `.dmg` from the [latest GitHub release](https://github.com/andreihansel/wormhole/releases/latest), open it, and drag Wormhole into Applications. This build is not Apple-notarized, so the first time you open it macOS says it "could not verify" Wormhole. Click **Done**, then go to **System Settings → Privacy & Security** and click **Open Anyway**.
+
+If macOS instead says Wormhole "is damaged and can't be opened", remove the download quarantine flag and open it again:
+
+```sh
+xattr -dr com.apple.quarantine /Applications/Wormhole.app
+```
 
 ### Requirements
 
