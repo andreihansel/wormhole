@@ -5599,7 +5599,7 @@ dependencies = [
 
 [[package]]
 name = "wh-app"
-version = "0.1.0"
+version = "0.1.1"
 dependencies = [
  "glob",
  "russh",
@@ -5618,7 +5618,7 @@ dependencies = [
 
 [[package]]
 name = "wh-core"
-version = "0.1.0"
+version = "0.1.1"
 dependencies = [
  "proptest",
  "serde",
@@ -5628,7 +5628,7 @@ dependencies = [
 
 [[package]]
 name = "wh-session"
-version = "0.1.0"
+version = "0.1.1"
 dependencies = [
  "portable-pty",
  "russh",
@@ -5643,7 +5643,7 @@ dependencies = [
 
 [[package]]
 name = "wh-ssh"
-version = "0.1.0"
+version = "0.1.1"
 dependencies = [
  "base64 0.22.1",
  "hmac 0.12.1",
@@ -5661,7 +5661,7 @@ dependencies = [
 
 [[package]]
 name = "wh-vault"
-version = "0.1.0"
+version = "0.1.1"
 dependencies = [
  "argon2 0.5.3",
  "chacha20poly1305",
@@ -6120,7 +6120,7 @@ dependencies = [
 
 [[package]]
 name = "wormhole"
-version = "0.1.0"
+version = "0.1.1"
 dependencies = [
  "serde",
  "serde_json",
